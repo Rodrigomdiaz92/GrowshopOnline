@@ -69,6 +69,14 @@ function calculoTotal(monto) {
   sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button>`;
 }
 
+function notificacionCarrito() {
+  $(notificacionCarrito).append(" ");
+  if (detalleDeCompra.length > 0) {
+    let cantidadDeProductos = detalleDeCompra.length;
+    $(notificacionCarrito).append(`${cantidadDeProductos}`);
+  }
+}
+
 function eliminarCarrito(e) {
   if (e.target.classList.contains("btn-warning")) {
     detalleDeCompra.length = 0;
