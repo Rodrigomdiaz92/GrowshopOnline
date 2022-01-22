@@ -142,7 +142,15 @@ function filtroMenoraMayor() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
-  const listafiltro = listaProductos.precio.sort();
+  const listafiltro = listaProductos.sort((a, b) => a.precio - b.precio);
+  crearProductos(listafiltro, "#filtrado");
+}
+
+function filtroMayoraMenor() {
+  $("#productos").hide();
+  $("#filtrado").show();
+  $("#filtrado").empty();
+  const listafiltro = listaProductos.sort((a, b) => b.precio - a.precio);
   crearProductos(listafiltro, "#filtrado");
 }
 

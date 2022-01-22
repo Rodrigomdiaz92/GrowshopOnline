@@ -9,6 +9,5 @@ $("#rolling").click(filtroRolling);
 $("#papelillos").click(filtroPapelillos);
 $("#filtros").click(filtroFiltros);
 $("#pipas").click(filtroPipas);
-//Falta implementar estos filtros
-/*$('#menorPrecio').click(crearProductos(listaProductos, productos))*/
-//$("#menorPrecio").click(filtroMenoraMayor);
+$("#menorPrecio").click(filtroMenoraMayor);
+$("#mayorPrecio").click(filtroMayoraMenor);
