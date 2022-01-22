@@ -138,6 +138,14 @@ function filtroPipas() {
   crearProductos(listafiltro, "#filtrado");
 }
 
+function filtroMenoraMayor() {
+  $("#productos").hide();
+  $("#filtrado").show();
+  $("#filtrado").empty();
+  const listafiltro = listaProductos.precio.sort();
+  crearProductos(listafiltro, "#filtrado");
+}
+
 function eliminarFiltro() {
   $("#filtrado").hide();
   $("#productos").show();

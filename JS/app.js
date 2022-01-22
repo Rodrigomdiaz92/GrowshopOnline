@@ -10,5 +10,5 @@ $("#papelillos").click(filtroPapelillos);
 $("#filtros").click(filtroFiltros);
 $("#pipas").click(filtroPipas);
 //Falta implementar estos filtros
-/*$('#menorPrecio').click(crearProductos(listaProductos, productos))
-$('').click(filtroMayor) */
+/*$('#menorPrecio').click(crearProductos(listaProductos, productos))*/
+//$("#menorPrecio").click(filtroMenoraMayor);
