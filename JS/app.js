@@ -1,5 +1,4 @@
 $(document).ready(getProductosjson());
-//carritoPendiente(); Queda pendiente de realizar
 productos.addEventListener("click", sumarAlCarrito);
 filtrado.addEventListener("click", sumarAlCarrito);
 sumaTotal.addEventListener("click", eliminarCarrito);
