@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "categoria": "Papelillos",
+    "nombre": "OCB",
+    "precio": 50,
+    "stock": 10,
+    "imagen": "ocbimg"
+  },
+  {
+    "id": 2,
+    "categoria": "Filtros",
+    "nombre": "OCB",
+    "precio": 20,
+    "stock": 10,
+    "imagen": "ocbimg"
+  },
+  {
+    "id": 3,
+    "categoria": "Pipa",
+    "nombre": "OCB",
+    "precio": 100,
+    "stock": 10,
+    "imagen": "ocbimg"
+  },
+  {
+    "id": 4,
+    "categoria": "Papelillos",
+    "nombre": "Rolling",
+    "precio": 60,
+    "stock": 10,
+    "imagen": "rollingimg"
+  },
+  {
+    "id": 5,
+    "categoria": "Filtros",
+    "nombre": "Rolling",
+    "precio": 40,
+    "stock": 10,
+    "imagen": "rollingimg"
+  },
+  {
+    "id": 6,
+    "categoria": "Pipa",
+    "nombre": "Rolling",
+    "precio": 150,
+    "stock": 10,
+    "imagen": "rollingimg"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "desafio14",
+  "version": "1.0.0",
+  "description": "tienda growshop",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss/style.scss css/style.css"
+  },
+  "author": "Diaz Rodrigo",
+  "license": "ISC"
+}

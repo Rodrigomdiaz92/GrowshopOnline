@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--AnimateCSS-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- CSS only BOOTSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <!--Fuente-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Iconos -->
+    <script
+      src="https://kit.fontawesome.com/1e0b617944.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!--          SEO        -->
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--Link style.css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!--Icono Pestaña-->
+    <link rel="shortcut icon" href="./img/" type="image/x-icon" />
+    <title>GrowShop Online</title>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        style="background-color: #dacb01"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><i class="fas fa-seedling"></i> GrowShopOnline</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Tienda</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Quienes somos</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Buscar"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="Contenido Principal">
+      <div class="container">
+        <h1 class="text-center mt-3">Bienvenidos a GrowShopOnline</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2><i class="fas fa-filter"></i> Filtros</h2>
+            <button
+              id="eliminarfiltros"
+              type="button"
+              class="btn btn-danger btn-sm"
+            >
+              Borrar Filtros
+            </button>
+            <h5>Macra</h5>
+            <button id="ocb" type="button" class="btn btn-primary btn-sm me-2">
+              OCB</button
+            ><button
+              id="rolling"
+              type="button"
+              class="btn btn-primary btn-sm me-2"
+            >
+              Rolling Circus
+            </button>
+            <h5>Categoria</h5>
+            <button
+              id="papelillos"
+              type="button"
+              class="btn btn-primary btn-sm me-2"
+            >
+              Papelillos</button
+            ><button
+              id="filtros"
+              type="button"
+              class="btn btn-primary btn-sm me-2"
+            >
+              Filtros</button
+            ><button
+              id="pipas"
+              type="button"
+              class="btn btn-primary btn-sm me-2"
+            >
+              Pipas
+            </button>
+            <h5>Precio</h5>
+            <button
+              id="menorPrecio"
+              type="button"
+              class="btn btn-primary btn-sm me-2"
+            >
+              Menor Precio</button
+            ><button type="button" class="btn btn-primary btn-sm me-2">
+              Mayor Precio
+            </button>
+          </div>
+          <div class="col justify-content-center">
+            <button id="boton1" type="button" class="btn btn-success">
+              <i class="fas fa-shopping-cart"></i> Carrito de compras
+            </button>
+            <div id="carritoCompras" class="card" style="width: 18rem">
+              <div class="card-header text-dark">Detalle de compra</div>
+              <ul id="carrito" class="list-group list-group-flush"></ul>
+              <div id="total" class="card-header text-dark"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid mt-2">
+        <div id="productos" class="row row-cols-1 row-cols-md-3"></div>
+      </div>
+      <div class="container-fluid mt-2">
+        <div id="filtrado" class="row row-cols-1 row-cols-md-3"></div>
+      </div>
+    </main>
+    <footer
+      class="d-flex flex-wrap align-items-center py-3 my-4 border-top"
+      style="background-color: #dacb01"
+    >
+      <div class="col-md-4 d-flex align-items-center">
+        <a
+          href="/"
+          class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+        >
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="text-muted">©GrowShopOnline 2021 Company, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+          <i class="fab fa-twitter"></i>
+        </li>
+        <li class="ms-3">
+          <i class="fab fa-facebook-f"></i>
+        </li>
+        <li class="ms-3">
+          <i class="fab fa-instagram"></i>
+        </li>
+      </ul>
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./JS/globals.js"></script>
+    <script src="./JS/functions.js"></script>
+    <script src="./JS/app.js"></script>
+  </body>
+</html>
