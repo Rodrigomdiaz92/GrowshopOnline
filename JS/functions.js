@@ -6,8 +6,6 @@ function getProductosjson() {
       carritoPendiente();
     }
   });
-
-  console.log(listaProductos);
 }
 
 function crearProductos(productosExhibidos, ubicacion) {
@@ -37,7 +35,6 @@ function sumarAlCarrito(e) {
     calculoCompra(productoElegido);
     detalleDeCompra.push(productoElegido);
     agregarAlCarrito();
-    console.log(listaProductos);
   }
 }
 
@@ -58,8 +55,14 @@ function calculoCompra(producto) {
 function agregarAlCarrito() {
   carritoCompra.innerHTML = "";
   calculoTotal(total);
-  for (const producto of detalleDeCompra) {
-    carritoCompra.innerHTML += `<li class="list-group-item"><img src="./img/${producto.categoria}/${producto.imagen}sm.png" class="img-fluid" alt="">${producto.categoria} ${producto.nombre} $${producto.precio}</li>`;
+  console.log(detalleDeCompra);
+  const carritoSinduplicados = [...new Set(detalleDeCompra)];
+  console.log(carritoSinduplicados);
+  for (const producto of carritoSinduplicados) {
+    const numeroUnidadesItem = detalleDeCompra.reduce((Total, itemId) => {
+      return itemId === producto ? (Total += 1) : Total;
+    }, 0);
+    carritoCompra.innerHTML += `<li class="list-group-item">${numeroUnidadesItem} x <img src="./img/${producto.categoria}/${producto.imagen}sm.png" class="img-fluid" alt="">${producto.categoria} ${producto.nombre} $${producto.precio}</li>`;
   }
   localStorage.setItem("Carrito Guardado", JSON.stringify(detalleDeCompra));
   localStorage.setItem("Total a Pagar", JSON.stringify(total));
@@ -93,7 +96,7 @@ function carritoPendiente() {
   );
   let TotalPendiente = JSON.parse(localStorage.getItem("Total a Pagar"));
   Array.prototype.push.apply(detalleDeCompra, productosPendientes);
-  console.log(detalleDeCompra);
+
   total += TotalPendiente;
   agregarAlCarrito();
 }
