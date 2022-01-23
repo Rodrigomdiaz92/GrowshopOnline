@@ -54,6 +54,7 @@ function calculoCompra(producto) {
 
 function agregarAlCarrito() {
   carritoCompra.innerHTML = "";
+  notificacionCarrito();
   calculoTotal(total);
   console.log(detalleDeCompra);
   const carritoSinduplicados = [...new Set(detalleDeCompra)];
@@ -73,10 +74,10 @@ function calculoTotal(monto) {
 }
 
 function notificacionCarrito() {
-  $(notificacionCarrito).append(" ");
+  notificacion.innerHTML = "";
   if (detalleDeCompra.length > 0) {
     let cantidadDeProductos = detalleDeCompra.length;
-    $(notificacionCarrito).append(`${cantidadDeProductos}`);
+    notificacion.innerHTML = `${cantidadDeProductos}`;
   }
 }
 

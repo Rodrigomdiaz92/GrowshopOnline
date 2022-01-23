@@ -21,7 +21,7 @@ footer {
   display: none;
 }
 
-span.red {
+div.red {
   background: red;
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;

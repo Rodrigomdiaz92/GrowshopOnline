@@ -9,5 +9,5 @@ const detalleDeCompra = []; //Muestra el detalle de todos los productos comprado
 let productos = document.getElementById("productos");
 let carritoCompra = document.getElementById("carrito");
 let sumaTotal = document.getElementById("total");
-
+let notificacion = document.getElementById("notificacionCarrito");
 const URLGET = "./productos.json";
