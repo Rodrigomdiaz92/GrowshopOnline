@@ -73,6 +73,7 @@ function calculoTotal(monto) {
   sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button>`;
 }
 
+//muestra una notificacion de la cantidad de productos en carrito
 function notificacionCarrito() {
   notificacion.innerHTML = "";
   if (detalleDeCompra.length > 0) {
