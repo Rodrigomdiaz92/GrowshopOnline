@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "GrowShop Club",
+    "direccion": "Ramon Franco 55",
+    "localidad": "Wilde",
+    "imagen": "growclub",
+    "horario": "10am a 20hs"
+  },
+  {
+    "id": 2,
+    "nombre": "Growshop La Colina",
+    "direccion": "Laprida 1758",
+    "localidad": "Quilmes",
+    "imagen": "growcolina",
+    "horario": "9am a 19hs"
+  },
+  {
+    "id": 3,
+    "nombre": "Bernal Mint",
+    "direccion": "9 de julio 235",
+    "localidad": "Bernal",
+    "imagen": "growmint",
+    "horario": "9am a 15hs y 17hs a 20hs"
+  }
+]

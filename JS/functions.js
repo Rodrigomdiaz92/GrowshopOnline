@@ -8,6 +8,38 @@ function getProductosjson() {
   });
 }
 
+function getLocalesjson() {
+  $.get(URLGETLOCALES, function (respuesta, estado) {
+    if (estado === "success") {
+      localesDisponibles = respuesta;
+      crearLocales(localesDisponibles, locales);
+      carritoPendiente();
+    }
+  });
+}
+
+function crearLocales(localesDisponibles, ubicacion) {
+  for (const local of localesDisponibles) {
+    $(ubicacion).append(`<div class="col d-flex justify-content-around">
+                          <div class="card mb-3" style="max-width: 540px;">
+                          <div class="row g-0">
+                          <div class="col-md-4">
+                          <img src="../img/locales/${local.imagen}.png" class="img-fluid rounded-start" alt="${local.nombre}">
+                          </div>
+                          <div class="col-md-8">
+                          <div class="card-body">
+                          <h5 class="card-title text-dark">${local.nombre}</h5>
+                          <p class="card-text text-dark">${local.direccion}, ${local.localidad}</p>
+                          <p class="card-text text-dark"><small class="text-muted">Horarios: ${local.horario}</small></p>
+                          <button id="${local.id}" type="button" class="btn btn-success">Encargar</button>
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                        </div>`);
+  }
+}
+
 function crearProductos(productosExhibidos, ubicacion) {
   for (const producto of productosExhibidos) {
     $(ubicacion).append(`<div class="col d-flex justify-content-around">
@@ -70,7 +102,7 @@ function agregarAlCarrito() {
 }
 
 function calculoTotal(monto) {
-  sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button>`;
+  sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button> <button type="button" class="btn btn-success"><a href="./compra">Comprar</a></button>`;
 }
 
 //muestra una notificacion de la cantidad de productos en carrito

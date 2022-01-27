@@ -1,4 +1,5 @@
 $(document).ready(getProductosjson());
+getLocalesjson();
 productos.addEventListener("click", sumarAlCarrito);
 filtrado.addEventListener("click", sumarAlCarrito);
 sumaTotal.addEventListener("click", eliminarCarrito);
