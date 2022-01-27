@@ -176,5 +176,5 @@ function eliminarFiltro() {
 //Animacion Carrito
 
 function mostrarCarrito() {
-  $("#carritoCompras").slideToggle();
+  $("#sidebar").toggleClass("active");
 }

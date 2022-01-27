@@ -39,7 +39,7 @@
   <body>
     <header>
       <nav
-        class="navbar navbar-expand-lg navbar-light"
+        class="navbar navbar-expand-lg navbar-light fixed-top"
         style="background-color: #dacb01"
       >
         <div class="container-fluid">
@@ -68,21 +68,23 @@
                 <a class="nav-link" href="#">Quienes somos</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Buscar
-              </button>
-            </form>
+            <button id="toggle-btn" type="button" class="btn btn-success">
+              <i class="fas fa-shopping-cart"></i> Carrito
+              <div id="notificacionCarrito" class="red"></div>
+            </button>
           </div>
         </div>
       </nav>
     </header>
+    <!--Comienzo sidebar-->
+    <div id="sidebar">
+      <div id="carritoCompras" class="card mt-5" style="width: 18rem">
+        <div class="card-header text-dark">Detalle de compra</div>
+        <ul id="carrito" class="list-group list-group-flush"></ul>
+        <div id="total" class="card-header text-dark"></div>
+      </div>
+    </div>
+    <!--Fin sidebar-->
     <main id="Contenido Principal">
       <div class="container">
         <h1 class="text-center mt-3">Bienvenidos a GrowShopOnline</h1>
@@ -144,15 +146,13 @@
             </button>
           </div>
           <div class="col justify-content-center">
-            <button id="boton1" type="button" class="btn btn-success">
-              <i class="fas fa-shopping-cart"></i> Carrito de compras
-              <div id="notificacionCarrito" class="red"></div>
-            </button>
+            <!-- Comienzo carrito
             <div id="carritoCompras" class="card" style="width: 18rem">
               <div class="card-header text-dark">Detalle de compra</div>
               <ul id="carrito" class="list-group list-group-flush"></ul>
               <div id="total" class="card-header text-dark"></div>
             </div>
+             fin carrito-->
           </div>
         </div>
       </div>

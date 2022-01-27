@@ -1,7 +1,3 @@
-#carritoCompras {
-  display: none;
-}
-
 div.red {
   background: red;
   border-radius: 0.8em;
@@ -14,4 +10,26 @@ div.red {
   margin-right: 15px;
   text-align: center;
   width: 1.6em;
+}
+
+#sidebar {
+  z-index: 3;
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background-color: black;
+  left: -300px;
+  overflow-y: scroll;
+  overflow: auto;
+}
+
+#carritoCompras {
+  z-index: 3;
+}
+
+#sidebar.active {
+  left: 0;
+}
+#contenido-tienda {
+  margin-top: 30rem;
 }

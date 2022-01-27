@@ -2,7 +2,7 @@ $(document).ready(getProductosjson());
 productos.addEventListener("click", sumarAlCarrito);
 filtrado.addEventListener("click", sumarAlCarrito);
 sumaTotal.addEventListener("click", eliminarCarrito);
-$("#boton1").click(mostrarCarrito);
+$("#toggle-btn").click(mostrarCarrito);
 $("#eliminarfiltros").click(eliminarFiltro);
 $("#ocb").click(filtroOCB);
 $("#rolling").click(filtroRolling);
