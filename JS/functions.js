@@ -31,7 +31,7 @@ function crearLocales(localesDisponibles, ubicacion) {
                           <h5 class="card-title text-dark">${local.nombre}</h5>
                           <p class="card-text text-dark">${local.direccion}, ${local.localidad}</p>
                           <p class="card-text text-dark"><small class="text-muted">Horarios: ${local.horario}</small></p>
-                          <button id="${local.id}" type="button" class="btn btn-success">Encargar</button>
+                          <button id="${local.id}" type="button" class=" btn-local btn btn-success">Encargar</button>
                           </div>
                           </div>
                           </div>
@@ -49,7 +49,7 @@ function crearProductos(productosExhibidos, ubicacion) {
                           <h5 class="card-title text-dark"> ${producto.categoria} ${producto.nombre} </h5>
                           <h6 class="card-subtitle mb-2 text-muted">Articulo n°: ${producto.id}</h6>
                           <p class="card-text text-dark">Precio $ ${producto.precio} Stock: ${producto.stock} unidades</p>
-                          <button id="${producto.id}" type="button" class="btn btn-success">Agregar al carrito</button>
+                          <button id="${producto.id}" type="button" class=" btn-producto btn btn-success">Agregar al carrito</button>
                           </div>
                           </div>
                           </div> `);
@@ -59,7 +59,7 @@ function crearProductos(productosExhibidos, ubicacion) {
 //nueva funcion ayax
 
 function sumarAlCarrito(e) {
-  if (e.target.classList.contains("btn-success")) {
+  if (e.target.classList.contains("btn-producto")) {
     const productoElegido = listaProductos.find(
       (producto) => producto.id == e.target.id
     );
