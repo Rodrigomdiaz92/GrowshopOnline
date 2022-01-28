@@ -15,6 +15,7 @@ function GETlocales(e) {
     $("#productos").hide();
     $("#locales").show();
     $("#filtrado").empty();
+    mostrarCarrito();
   }
   $.get(URLGETLOCALES, function (respuesta, estado) {
     if (estado === "success") {
