@@ -40,7 +40,7 @@ function crearLocales(localesDisponibles, ubicacion) {
                           <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                           <div class="col-md-4">
-                          <img src="../img/locales/${local.imagen}.png" class="img-fluid rounded-start" alt="${local.nombre}">
+                          <img src="./img/locales/${local.imagen}.png" class="img-fluid rounded-start" alt="${local.nombre}">
                           </div>
                           <div class="col-md-8">
                           <div class="card-body">
