@@ -87,19 +87,21 @@
     <!--Fin sidebar-->
     <main id="Contenido Principal">
       <div class="container">
-        <h1 class="text-center mt-3">Bienvenidos a GrowShopOnline</h1>
+        <h1 class="text-center mt-3">.</h1>
       </div>
-      <div class="container">
+      <div id="contenedorFiltros" class="container">
         <div class="row">
           <div class="col">
             <h2><i class="fas fa-filter"></i> Filtros</h2>
             <button
               id="eliminarfiltros"
               type="button"
-              class="btn btn-danger btn-sm"
+              class="btn btn-success btn-sm"
             >
-              Borrar Filtros
+              Ver todos los productos
             </button>
+          </div>
+          <div class="col mt-2">
             <h5>Macra</h5>
             <button id="ocb" type="button" class="btn btn-primary btn-sm me-2">
               OCB</button
@@ -110,6 +112,8 @@
             >
               Rolling Circus
             </button>
+          </div>
+          <div class="col mt-2">
             <h5>Categoria</h5>
             <button
               id="papelillos"
@@ -130,6 +134,8 @@
             >
               Pipas
             </button>
+          </div>
+          <div class="col mt-2">
             <h5>Precio</h5>
             <button
               id="menorPrecio"
@@ -145,22 +151,28 @@
               Mayor Precio
             </button>
           </div>
-          <div class="col justify-content-center">
-            <!-- Comienzo carrito
-            <div id="carritoCompras" class="card" style="width: 18rem">
-              <div class="card-header text-dark">Detalle de compra</div>
-              <ul id="carrito" class="list-group list-group-flush"></ul>
-              <div id="total" class="card-header text-dark"></div>
-            </div>
-             fin carrito-->
-          </div>
         </div>
       </div>
-      <div class="container-fluid mt-2">
+      <div class="container-fluid mt-4">
         <div id="productos" class="row row-cols-1 row-cols-md-3"></div>
       </div>
       <div class="container-fluid mt-2">
         <div id="filtrado" class="row row-cols-1 row-cols-md-3"></div>
+      </div>
+      <div class="container-fluid mt-3">
+        <div id="locales" class="row row-cols-1 row-cols-md-3"></div>
+      </div>
+      <div id="final" class="container-fluid mt-3">
+        <div class="row">
+          <div class="col">
+            <div class="card-header">Detalle de compra</div>
+            <ul id="compra-realizada" class="list-group list-group-flush"></ul>
+            <div id="total-final" class="card-header text-dark"></div>
+          </div>
+          <div class="col">
+            <div id="puntoDeEntrega"></div>
+          </div>
+        </div>
       </div>
     </main>
     <footer

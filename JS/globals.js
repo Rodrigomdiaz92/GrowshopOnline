@@ -7,10 +7,14 @@ let localesDisponibles;
 
 const detalleDeCompra = []; //Muestra el detalle de todos los productos comprados
 
+const localDeRetiro = [];
+
 let productos = document.getElementById("productos");
 let locales = document.getElementById("locales");
 let carritoCompra = document.getElementById("carrito");
+let compraFinal = document.getElementById("compra-realizada");
 let sumaTotal = document.getElementById("total");
+let totalFinal = document.getElementById("total-final");
 let notificacion = document.getElementById("notificacionCarrito");
 const URLGET = "./productos.json";
-const URLGETLOCALES = "../locales.json";
+const URLGETLOCALES = "./locales.json";

@@ -51,8 +51,8 @@ div.red {
   left: 0;
 }
 
-#contenido-tienda {
-  margin-top: 30rem;
+#final {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

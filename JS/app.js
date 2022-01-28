@@ -1,8 +1,10 @@
 $(document).ready(getProductosjson());
-getLocalesjson();
 productos.addEventListener("click", sumarAlCarrito);
 filtrado.addEventListener("click", sumarAlCarrito);
+locales.addEventListener("click", elegirLocal);
+puntoDeEntrega.addEventListener("click", reiniciarCompra);
 sumaTotal.addEventListener("click", eliminarCarrito);
+sumaTotal.addEventListener("click", GETlocales);
 $("#toggle-btn").click(mostrarCarrito);
 $("#eliminarfiltros").click(eliminarFiltro);
 $("#ocb").click(filtroOCB);

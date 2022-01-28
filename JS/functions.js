@@ -8,12 +8,21 @@ function getProductosjson() {
   });
 }
 
-function getLocalesjson() {
+function GETlocales(e) {
+  if (e.target.classList.contains("btn-comprar")) {
+    $("#locales").empty();
+    $("#filtrado").hide();
+    $("#productos").hide();
+    $("#locales").show();
+    $("#filtrado").empty();
+  }
   $.get(URLGETLOCALES, function (respuesta, estado) {
     if (estado === "success") {
       localesDisponibles = respuesta;
+      $("#locales").append(
+        `<div class="container"><h1 class="text-center mt-3">Selecciona por donde retirar tus productos</h1></div>`
+      );
       crearLocales(localesDisponibles, locales);
-      carritoPendiente();
     }
   });
 }
@@ -56,6 +65,43 @@ function crearProductos(productosExhibidos, ubicacion) {
   }
 }
 
+function elegirLocal(e) {
+  if (e.target.classList.contains("btn-local")) {
+    const localElegido = localesDisponibles.find(
+      (local) => local.id == e.target.id
+    );
+    localDeRetiro.push(localElegido);
+    $("#locales").empty();
+    $("#locales").hide();
+    $("#final").show();
+    $("#contenedorFiltros").hide();
+    puntoDeRetiro();
+  }
+}
+
+function puntoDeRetiro() {
+  for (const local of localDeRetiro) {
+    $("#puntoDeEntrega").append(
+      `<div><h1 class="text-center mt-3">¡Gracias por tu compra!</h1></div><div><h3 class="mt-3">Retira por:</h3></div><div><p>${local.nombre}</p></div><div>${local.direccion}, ${local.localidad}</div><div>Horario de atencion: ${local.horario}</div>
+      <p><button id="toggle-btn" type="button" class="btn-reiniciar-compra btn btn-success">Seguir comprando</button></p>`
+    );
+  }
+}
+
+function reiniciarCompra(e) {
+  if (e.target.classList.contains("btn-reiniciar-compra")) {
+    $("#productos").show();
+    $("#contenedorFiltros").show();
+    $("#final").hide();
+    $("#puntoDeEntrega").empty();
+    detalleDeCompra.length = 0;
+    localDeRetiro.length = 0;
+    total = 0;
+    agregarAlCarrito();
+    localStorage.clear();
+  }
+}
+
 //nueva funcion ayax
 
 function sumarAlCarrito(e) {
@@ -86,6 +132,7 @@ function calculoCompra(producto) {
 
 function agregarAlCarrito() {
   carritoCompra.innerHTML = "";
+  compraFinal.innerHTML = "";
   notificacionCarrito();
   calculoTotal(total);
   console.log(detalleDeCompra);
@@ -95,6 +142,7 @@ function agregarAlCarrito() {
     const numeroUnidadesItem = detalleDeCompra.reduce((Total, itemId) => {
       return itemId === producto ? (Total += 1) : Total;
     }, 0);
+    compraFinal.innerHTML += `<li class="list-group-item">${numeroUnidadesItem} x <img src="./img/${producto.categoria}/${producto.imagen}sm.png" class="img-fluid" alt="">${producto.categoria} ${producto.nombre} $${producto.precio}</li>`;
     carritoCompra.innerHTML += `<li class="list-group-item">${numeroUnidadesItem} x <img src="./img/${producto.categoria}/${producto.imagen}sm.png" class="img-fluid" alt="">${producto.categoria} ${producto.nombre} $${producto.precio}</li>`;
   }
   localStorage.setItem("Carrito Guardado", JSON.stringify(detalleDeCompra));
@@ -102,7 +150,8 @@ function agregarAlCarrito() {
 }
 
 function calculoTotal(monto) {
-  sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button> <button type="button" class="btn btn-success"><a href="./compra">Comprar</a></button>`;
+  sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button> <button type="button" class=" btn-comprar btn btn-success">Comprar</button>`;
+  totalFinal.innerHTML = `<h3 class="text-light bg-dark">Debes abonar $${monto} en el Local </h3>`;
 }
 
 //muestra una notificacion de la cantidad de productos en carrito
@@ -120,6 +169,7 @@ function eliminarCarrito(e) {
     total = 0;
     agregarAlCarrito();
     localStorage.clear();
+    $("#locales").hide();
   }
 }
 
@@ -141,6 +191,7 @@ function filtroOCB() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.filter(
     (producto) => producto.nombre == "OCB"
   );
@@ -150,6 +201,7 @@ function filtroRolling() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.filter(
     (producto) => producto.nombre == "Rolling"
   );
@@ -159,6 +211,7 @@ function filtroPapelillos() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.filter(
     (producto) => producto.categoria == "Papelillos"
   );
@@ -168,6 +221,7 @@ function filtroFiltros() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.filter(
     (producto) => producto.categoria == "Filtros"
   );
@@ -177,6 +231,7 @@ function filtroPipas() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.filter(
     (producto) => producto.categoria == "Pipa"
   );
@@ -187,6 +242,7 @@ function filtroMenoraMayor() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.sort((a, b) => a.precio - b.precio);
   crearProductos(listafiltro, "#filtrado");
 }
@@ -195,6 +251,7 @@ function filtroMayoraMenor() {
   $("#productos").hide();
   $("#filtrado").show();
   $("#filtrado").empty();
+  $("#locales").empty();
   const listafiltro = listaProductos.sort((a, b) => b.precio - a.precio);
   crearProductos(listafiltro, "#filtrado");
 }
@@ -203,6 +260,7 @@ function eliminarFiltro() {
   $("#filtrado").hide();
   $("#productos").show();
   $("#filtrado").empty();
+  $("#locales").empty();
 }
 
 //Animacion Carrito
