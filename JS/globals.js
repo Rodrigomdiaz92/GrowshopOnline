@@ -7,7 +7,7 @@ let localesDisponibles;
 
 const detalleDeCompra = []; //Muestra el detalle de todos los productos comprados
 
-const localDeRetiro = [];
+const localDeRetiro = []; // se alamacena el local elegido para retirar
 
 let productos = document.getElementById("productos");
 let locales = document.getElementById("locales");

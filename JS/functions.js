@@ -1,3 +1,5 @@
+//obtiene los productos desde json para mostrarlos en pantalla
+
 function getProductosjson() {
   $.get(URLGET, function (respuesta, estado) {
     if (estado === "success") {
@@ -7,6 +9,8 @@ function getProductosjson() {
     }
   });
 }
+
+//obtiene desde json los locales disponibles para retirar la compra realizada
 
 function GETlocales(e) {
   if (e.target.classList.contains("btn-comprar")) {
@@ -27,6 +31,8 @@ function GETlocales(e) {
     }
   });
 }
+
+//muestra en pantalla los locales disponibles para pickup
 
 function crearLocales(localesDisponibles, ubicacion) {
   for (const local of localesDisponibles) {
@@ -50,6 +56,8 @@ function crearLocales(localesDisponibles, ubicacion) {
   }
 }
 
+// muestra en pantalla todos los productos disponibles
+
 function crearProductos(productosExhibidos, ubicacion) {
   for (const producto of productosExhibidos) {
     $(ubicacion).append(`<div class="col d-flex justify-content-around">
@@ -66,6 +74,8 @@ function crearProductos(productosExhibidos, ubicacion) {
   }
 }
 
+//evento click que obtiene datos del local seleccionado
+
 function elegirLocal(e) {
   if (e.target.classList.contains("btn-local")) {
     const localElegido = localesDisponibles.find(
@@ -80,6 +90,8 @@ function elegirLocal(e) {
   }
 }
 
+// agrega al resumen final el punto de venta seleccionado
+
 function puntoDeRetiro() {
   for (const local of localDeRetiro) {
     $("#puntoDeEntrega").append(
@@ -88,6 +100,8 @@ function puntoDeRetiro() {
     );
   }
 }
+
+//una vez finalizada la compra , vuelve al inicio y reinicia el carrito y resumen final
 
 function reiniciarCompra(e) {
   if (e.target.classList.contains("btn-reiniciar-compra")) {
@@ -103,7 +117,7 @@ function reiniciarCompra(e) {
   }
 }
 
-//nueva funcion ayax
+// es un evento click que obtiene la informacion del producto para sumarlo al carrito
 
 function sumarAlCarrito(e) {
   if (e.target.classList.contains("btn-producto")) {
@@ -117,6 +131,7 @@ function sumarAlCarrito(e) {
   }
 }
 
+//resta el Stock al producto seleccionado
 function restarStock(producto) {
   if (producto.stock > 1) {
     producto.stock -= 1;
@@ -125,11 +140,14 @@ function restarStock(producto) {
   }
 }
 
+//obtiene el precio del producto seleccionado y lo suma al total
 function calculoCompra(producto) {
   total += producto.precio;
 }
 
 //fin
+
+//Agrega los productos al carrito y resumen final , ademas hace el calculo para no repetir productos en el carrito
 
 function agregarAlCarrito() {
   carritoCompra.innerHTML = "";
@@ -150,12 +168,14 @@ function agregarAlCarrito() {
   localStorage.setItem("Total a Pagar", JSON.stringify(total));
 }
 
+//suma los montos de la compra que se esta haciendo al carrito y al resumen final que esta oculto
 function calculoTotal(monto) {
   sumaTotal.innerHTML = ` <h3>Total a pagar $${monto} </h3> <button type="button" class="btn btn-warning">Vaciar Carrito</button> <button type="button" class=" btn-comprar btn btn-success">Comprar</button>`;
   totalFinal.innerHTML = `<h3 class="text-light bg-dark">Debes abonar $${monto} en el Local </h3>`;
 }
 
-//muestra una notificacion de la cantidad de productos en carrito
+//muestra una notificacion de la cantidad de productos que hay en el carrito
+
 function notificacionCarrito() {
   notificacion.innerHTML = "";
   if (detalleDeCompra.length > 0) {
@@ -164,6 +184,7 @@ function notificacionCarrito() {
   }
 }
 
+//elimina todos los productos del carrito
 function eliminarCarrito(e) {
   if (e.target.classList.contains("btn-warning")) {
     detalleDeCompra.length = 0;
